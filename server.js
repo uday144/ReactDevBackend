@@ -24,7 +24,12 @@ mongoose
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 
-app.get("/", (req, res) => res.send("Hello World"));
+// Passport Middleware
+
+app.use(passport.initialize());
+
+// Passport Config
+require("./config/passport")(passport);
 
 const port = process.env.port || 5000;
 
